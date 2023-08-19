@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using TuiFly.FlySearchApi.Api.Common.Middlewares;
 using TuiFly.FlySearchApi.Api.Controllers.Fligths.Validations;
 using TuiFly.FlySearchApi.Api.Extensions;
+using TuiFly.FlySearchApi.Domain.Common.configuration;
 
 namespace TuiFly.FlySearchApi.Api
 {
@@ -29,6 +30,14 @@ namespace TuiFly.FlySearchApi.Api
             services.AddFluentValidationAutoValidation();
             //D.I
             services.AddAppServices();
+
+            services.Configure<CacheConfiguration>(Configuration.GetSection(nameof(CacheConfiguration)));
+            var optimization = Configuration.GetSection(nameof(CacheConfiguration)).Get<CacheConfiguration>();
+            services.AddMemoryCache(options =>
+            {
+                options.CompactionPercentage = optimization?.CompactionPercentage ?? 0;
+                options.SizeLimit = optimization?.SizeLimit ?? 0;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

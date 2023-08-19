@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using System;
-using TuiFly.FlySearchApi.Api.Controllers.Fligths.Model;
+using TuiFly.FlySearchApi.Api.Controllers.Fligths.Model.Requests;
 
 namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Validations
 {
@@ -32,13 +32,13 @@ namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Validations
                 .NotEmpty()
                 .WithMessage("The value '{PropertyValue}' provided for field '{PropertyName}' is invalid.");
 
-            RuleFor(m => m.ArrivalDate)
+            RuleFor(m => m.ReturnDate)
                 .NotNull()
                 .NotEmpty()
                 .WithMessage("The value '{PropertyValue}' provided for field '{PropertyName}' is invalid.");
 
             RuleFor(m => m)
-                .Must(m => m.DepartureDate.Date.CompareTo(m.ArrivalDate.Date) < 0 && m.DepartureDate.Date.CompareTo(DateTime.Now.AddDays(-1)) > 0)
+                .Must(m => m.DepartureDate.Date.CompareTo(m.ReturnDate.Date) < 0 && m.DepartureDate.Date.CompareTo(DateTime.Now.AddDays(-1)) > 0)
                 .WithMessage("The value provided for DepartureDate must be greater than arrivalDate.");
         }
     }

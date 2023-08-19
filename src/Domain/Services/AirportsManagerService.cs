@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using TuiFly.FlySearchApi.Domain.Interfaces;
-using TuiFly.FlySearchApi.Domain.Models;
+using TuiFly.FlySearchApi.Domain.Models.Dto;
 
 namespace TuiFly.FlySearchApi.Domain.Services
 {

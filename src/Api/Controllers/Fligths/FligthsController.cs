@@ -11,17 +11,17 @@ namespace TuiFly.FlySearchApi.Api.Controllers.Fligths
     public partial class FligthsController : ControllerBase
     {
         /// <summary>
-        /// the airport service for manage all departure and arrival
+        /// the flight service for manage all flight search
         /// </summary>
-        private readonly IAirportsManagerService _airportsManagerService;
+        private readonly IFlightsManagerService _flightsManagerService;
 
         /// <summary>
         /// The ctor
         /// </summary>
-        /// <param name="airportsManagerService">the airport service</param>
-        public FligthsController(IAirportsManagerService airportsManagerService)
+        /// <param name="flightsManagerService">the flight manager service</param>
+        public FligthsController(IFlightsManagerService flightsManagerService)
         {
-            _airportsManagerService = airportsManagerService;
+            _flightsManagerService = flightsManagerService;
         }
     }
 }

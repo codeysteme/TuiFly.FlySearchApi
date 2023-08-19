@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Model
+namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Model.Requests
 {
     public class GetFlightsRequest
     {
@@ -31,8 +31,8 @@ namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Model
         /// the Arrival date
         /// </summary>
         /// <example>2023-08-20T11:25:06</example>
-        [JsonPropertyName("arrivalDate")]
-        public DateTime ArrivalDate { get; set; }
+        [JsonPropertyName("returnDate")]
+        public DateTime ReturnDate { get; set; }
 
         /// <summary>
         /// the number of passenger for booking

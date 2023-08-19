@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Model
+namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Model.Responses
 {
     public class FlightPackageResponse
     {

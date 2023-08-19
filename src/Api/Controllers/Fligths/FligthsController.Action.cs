@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Mime;
 using TuiFly.FlySearchApi.Api.Common.Helpers;
 using TuiFly.FlySearchApi.Api.Controllers.Airports.Models;
-using TuiFly.FlySearchApi.Api.Controllers.Fligths.Model;
+using TuiFly.FlySearchApi.Api.Controllers.Fligths.Model.Requests;
 
 namespace TuiFly.FlySearchApi.Api.Controllers.Fligths
 {
@@ -27,16 +27,14 @@ namespace TuiFly.FlySearchApi.Api.Controllers.Fligths
         [Produces(MediaTypeNames.Application.Json)]
         public IActionResult GetAvailableFlights([FromQuery] GetFlightsRequest getFlightsRequest)
         {
-
-
-            var response = _airportsManagerService.GetAllAirportsValue();
+            var response = _flightsManagerService.GetflightsList(getFlightsRequest.ToFlightsRequestQuery());
 
             if (response.Any())
             {
-                return Ok(response.ToAirportModels());
+                return Ok(response);
             }
 
-            return BadRequest();
+            return NoContent();
         }
     }
 }
