@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using TuiFly.FlySearchApi.Domain.Common;
 using TuiFly.FlySearchApi.Domain.Models.Dto;
 using TuiFly.FlySearchApi.Domain.Models.Queries;
 
@@ -11,6 +11,6 @@ namespace TuiFly.FlySearchApi.Domain.Interfaces
         /// </summary>
         /// <param name="flightsRequestQuery">the flight query</param>
         /// <returns></returns>
-        public IEnumerable<FlightPackageDto> GetflightsList(FlightsRequestQuery flightsRequestQuery);
+        public PaginationModel<FlightPackageDto> GetflightsList(FlightsRequestQuery flightsRequestQuery);
     }
 }

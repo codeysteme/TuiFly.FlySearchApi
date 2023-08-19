@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using TuiFly.FlySearchApi.Api.Controllers.Airports.Models;
 
 namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Model.Responses
 {
@@ -32,5 +33,19 @@ namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Model.Responses
         /// <example>2023-08-20T11:25:06</example>
         [JsonPropertyName("arrivalDate")]
         public DateTime ArrivalDate { get; set; }
+
+        /// <summary>
+        /// the departure airport
+        /// </summary>
+        /// <example>ACE</example>
+        [JsonPropertyName("departureAirport")]
+        public AirportsResponse DepartureAirport { get; set; }
+
+        /// <summary>
+        /// the arrival airport
+        /// </summary>
+        /// <example>ORL</example>
+        [JsonPropertyName("arrivalAirport")]
+        public AirportsResponse ArrivalAirport { get; set; }
     }
 }

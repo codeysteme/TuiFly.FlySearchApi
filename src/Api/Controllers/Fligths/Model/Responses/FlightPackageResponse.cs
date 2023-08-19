@@ -1,33 +1,27 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace TuiFly.FlySearchApi.Api.Controllers.Fligths.Model.Responses
 {
     public class FlightPackageResponse
     {
         /// <summary>
-        /// the flight id
+        /// the number of pages.
+        /// </summary>
+        [JsonPropertyName("pageIndex")]
+        public int PageIndex { get; set; }
+
+        /// <summary>
+        /// the Total Pages 
         /// </summary>
         /// <example>1</example>
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
+        [JsonPropertyName("totalPages")]
+        public int TotalPages { get; set; }
 
         /// <summary>
-        /// the flight price
+        /// the flights list
         /// </summary>
-        /// <example>$12</example>
-        [JsonPropertyName("totalPrice")]
-        public string TotalPrice { get; set; }
-
-        /// <summary>
-        /// the departure flight
-        /// </summary>
-        [JsonPropertyName("departure")]
-        public FlightModel Depature { get; set; }
-
-        /// <summary>
-        /// the arrival flight
-        /// </summary>
-        [JsonPropertyName("arrival")]
-        public FlightModel Arrival { get; set; }
+        [JsonPropertyName("flights")]
+        public List<FlightPackageModel> Flights { get; set; }
     }
 }

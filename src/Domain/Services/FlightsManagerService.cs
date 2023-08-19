@@ -49,7 +49,7 @@ namespace TuiFly.FlySearchApi.Domain.Services
         /// </summary>
         /// <param name="flightsRequestQuery">the flight query</param>
         /// <returns></returns>
-        public IEnumerable<FlightPackageDto> GetflightsList(FlightsRequestQuery flightsRequestQuery)
+        public PaginationModel<FlightPackageDto> GetflightsList(FlightsRequestQuery flightsRequestQuery)
         {
             var airports = _airportsRepository.GetAirportList();
             var departure = airports.Where(x => x.Id.Equals(flightsRequestQuery.Departure)).FirstOrDefault();
@@ -57,11 +57,12 @@ namespace TuiFly.FlySearchApi.Domain.Services
 
             if (departure != null && arrival != null)
             {
-                //Generate cache flights or generate
-                return GetFlightsInCacheOrGenrate(flightsRequestQuery, departure, arrival);
+                var result = GetFlightsInCacheOrGenerate(flightsRequestQuery, departure, arrival);
+
+                return result.ToPaginatedcollection(flightsRequestQuery.PageIndex, flightsRequestQuery.PageSize);
             }
 
-            return Array.Empty<FlightPackageDto>();
+            return default;
         }
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace TuiFly.FlySearchApi.Domain.Services
         /// <param name="departure"></param>
         /// <param name="arrival"></param>
         /// <returns></returns>
-        private IEnumerable<FlightPackageDto> GetFlightsInCacheOrGenrate(FlightsRequestQuery flightsRequestQuery, AirportDto departure, AirportDto arrival)
+        private IEnumerable<FlightPackageDto> GetFlightsInCacheOrGenerate(FlightsRequestQuery flightsRequestQuery, AirportDto departure, AirportDto arrival)
         {
             var cacheKey = $"{flightsRequestQuery.Departure}-{flightsRequestQuery.Arrival}";
             var cacheOptions = new MemoryCacheEntryOptions
