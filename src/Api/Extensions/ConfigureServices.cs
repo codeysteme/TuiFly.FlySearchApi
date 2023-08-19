@@ -9,6 +9,11 @@ namespace TuiFly.FlySearchApi.Api.Extensions
     /// </summary>
     public static class ConfigureServices
     {
+        /// <summary>
+        /// config D.I
+        /// </summary>
+        /// <param name="service"></param>
+        /// <returns></returns>
         public static IServiceCollection AddAppServices(this IServiceCollection service)
         {
             //DOMAIN

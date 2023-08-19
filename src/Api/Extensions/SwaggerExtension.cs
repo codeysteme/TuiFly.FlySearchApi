@@ -8,6 +8,11 @@ namespace TuiFly.FlySearchApi.Api.Extensions
 {
     public static class SwaggerExtension
     {
+        /// <summary>
+        /// Init and add Tuifly swagger configuration
+        /// </summary>
+        /// <param name="service"></param>
+        /// <returns></returns>
         public static IServiceCollection AddTuiflySwaggerGen(this IServiceCollection service)
         {
             service.AddSwaggerGen(options =>
@@ -34,7 +39,6 @@ namespace TuiFly.FlySearchApi.Api.Extensions
                 var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
-
 
             return service;
         }
