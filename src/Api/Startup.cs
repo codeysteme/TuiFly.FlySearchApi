@@ -46,6 +46,7 @@ namespace TuiFly.FlySearchApi.Api
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
+            //Global server error handle middleware
             app.UseServerErrorHandler();
             app.UseStaticFiles();
 

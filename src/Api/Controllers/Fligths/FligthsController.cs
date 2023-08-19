@@ -4,7 +4,7 @@ using TuiFly.FlySearchApi.Domain.Interfaces;
 namespace TuiFly.FlySearchApi.Api.Controllers.Fligths
 {
     /// <summary>
-    /// SampleController
+    /// FligthsController base
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
