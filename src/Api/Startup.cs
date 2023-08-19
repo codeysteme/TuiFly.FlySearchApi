@@ -49,6 +49,7 @@ namespace TuiFly.FlySearchApi.Api
             app.UseRouting();
             app.UseAuthorization();
             app.UseServerErrorHandler();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
