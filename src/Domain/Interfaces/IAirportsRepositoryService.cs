@@ -3,7 +3,7 @@ using TuiFly.FlySearchApi.Domain.Models;
 
 namespace TuiFly.FlySearchApi.Domain.Interfaces
 {
-    public interface IAirportsRepository
+    public interface IAirportsRepositoryService
     {
         /// <summary>
         /// Get list of airport data

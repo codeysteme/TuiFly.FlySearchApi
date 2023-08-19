@@ -9,11 +9,15 @@ namespace TuiFly.FlySearchApi.Domain.Services
         /// <summary>
         /// the airports repository services
         /// </summary>
-        private readonly IAirportsRepository _airportsRepository;
+        private readonly IAirportsRepositoryService _airportsRepository;
 
-        public AirportsManagerService(IAirportsRepository airportsRepository)
+        /// <summary>
+        /// the ctor
+        /// </summary>
+        /// <param name="airportsRepositoryService"></param>
+        public AirportsManagerService(IAirportsRepositoryService airportsRepositoryService)
         {
-            _airportsRepository = airportsRepository;
+            _airportsRepository = airportsRepositoryService;
         }
 
 

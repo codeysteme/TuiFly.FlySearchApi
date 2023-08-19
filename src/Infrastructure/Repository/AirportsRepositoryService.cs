@@ -5,7 +5,7 @@ using TuiFly.FlySearchApi.Infrastructure.Mock.Tools;
 
 namespace TuiFly.FlySearchApi.Infrastructure.Repository
 {
-    public class AirportsRepository : IAirportsRepository
+    public class AirportsRepositoryService : IAirportsRepositoryService
     {
         /// <summary>
         /// Get list of airport data
