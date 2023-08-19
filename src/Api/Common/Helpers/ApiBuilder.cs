@@ -12,9 +12,9 @@ namespace TuiFly.FlySearchApi.Api.Common.Helpers
         /// </summary>
         /// <param name="airportDtos"></param>
         /// <returns></returns>
-        public static IEnumerable<AirportModel> ToAirportModels(this IEnumerable<AirportDto> airportDtos)
+        public static IEnumerable<AirportsResponse> ToAirportModels(this IEnumerable<AirportDto> airportDtos)
         {
-            return airportDtos.Select(a => new AirportModel
+            return airportDtos.Select(a => new AirportsResponse
             {
                 Available = a.Available,
                 CountryName = a.CountryName,

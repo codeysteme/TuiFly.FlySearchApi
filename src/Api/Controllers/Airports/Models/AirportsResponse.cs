@@ -2,7 +2,7 @@
 
 namespace TuiFly.FlySearchApi.Api.Controllers.Airports.Models
 {
-    public class AirportModel
+    public class AirportsResponse
     {
         /// <summary>
         /// the airport name

@@ -1,9 +1,12 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TuiFly.FlySearchApi.Api.Common.Middlewares;
+using TuiFly.FlySearchApi.Api.Controllers.Fligths.Validations;
 using TuiFly.FlySearchApi.Api.Extensions;
 using TuiFly.FlySearchApi.Domain.Interfaces;
 using TuiFly.FlySearchApi.Domain.Services;
@@ -25,6 +28,8 @@ namespace TuiFly.FlySearchApi.Api
         {
             services.AddControllers();
             services.AddTuiflySwaggerGen();
+            services.AddValidatorsFromAssemblyContaining<FlightRequestValidator>();
+            services.AddFluentValidationAutoValidation();
             //Add D.I
             services.AddSingleton<IAirportsRepository, AirportsRepository>();
             services.AddSingleton<IAirportsManagerService, AirportsManagerService>();
